@@ -1,0 +1,615 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>陈俊的简历</title>
+		<style type="text/css" media="all">
+			/*
+			* {
+				outline: solid 1px black;
+			}
+			*/
+			
+			body {
+				text-align: center;
+				padding: 0px;
+				margin: 0px;
+				background-color: #E5ECF9;
+				font: 12px 微软雅黑, 宋体;
+			}
+			
+			.hidden {
+				display: none;
+			}
+			
+			.mainWrapper {
+				text-align: left;
+				width: 690px;
+				margin: 50px auto 30px;
+				position: relative;
+			}
+			
+			ul.nav {
+				list-style: none;
+				margin: 0px;
+				padding: 0px;
+				position: absolute;
+				top: 20px;
+				left: -55px;
+			}
+			
+			ul.nav li {
+				width: 40px;
+				margin: 5px 0px;
+				padding: 0px 10px;
+				font-size: 25px;
+				font-weight: bold;
+				color: orange;
+				text-align: center;
+				border: 1px solid lightgray;
+				border-right: none;
+				
+				-webkit-box-shadow: -2px 0px 10px #06C;
+				-moz-box-shadow: -2px 0px 10px #06C;
+				box-shadow: -2px 0px 10px #06C;
+				
+				-webkit-transition: all 0.5s ease-in-out;
+				-moz-transition: all 0.5s ease-in-out;
+				-o-transition : all 0.5s ease-in-out;
+				transition: all 0.5s ease-in-out;
+			}
+			
+			ul.nav li:first-child {
+				color: black;
+				
+				-webkit-border-radius: 15px 0px 0px 0px;
+				-moz-border-radius: 15px 0px 0px 0px;
+				-o-border-radius: 15px 0px 0px 0px;
+				border-radius: 15px 0px 0px 0px;
+			}
+			
+			ul.nav li:last-child {
+				-webkit-border-radius: 0px 0px 0px 15px;
+				-moz-border-radius: 0px 0px 0px 15px;
+				-o-border-radius: 0px 0px 0px 15px;
+				border-radius: 0px 0px 0px 15px;
+			}
+			
+			.navTitle {
+				text-decoration: none;
+			}
+			
+			ul.nav li:hover {
+				cursor: pointer;
+			}
+			
+			.innerWrapper {
+				width: 680px;
+				padding: 5px;
+				overflow: hidden;
+			}
+			
+			.scroller {
+				width: 3000px;
+				
+				-webkit-transition: all 0.5s ease-in-out;
+				-moz-transition: all 0.5s ease-in-out;
+				-o-transition: all 0.5s ease-in-out;
+				transition: all 0.5s ease-in-out;
+			}
+			
+			.infoContainer {
+				width: 666px;
+				border: 2px solid lightgray;
+				overflow: hidden;
+				float: left;
+				margin-right: 20px;
+				background: white;
+				
+				-webkit-box-shadow: 2px 0px 10px #06C;
+				-moz-box-shadow: 2px 0px 10px #06C;
+				-o-box-shadow: 2px 0px 10px #06C;
+				box-shadow: 2px 0px 10px #06C;
+				
+				-webkit-border-radius: 20px;
+				-moz-border-radius: 20px;
+				-o-border-radius: 20px;
+				border-radius: 20px;
+			}
+			
+			.content {
+				overflow: auto;
+				margin: 20px;
+			}
+			
+			.content .left {
+				width: 210px;
+				float: left;
+			}
+			
+			.content .right{
+				width: 410px;
+				float: right;
+			}
+			
+			img.avatar {
+				width: 201px;
+				height: 283px;
+				
+				-webkit-border-radius: 20px;
+				-moz-border-radius: 20px;
+				-o-border-radius: 20px;
+				border-radius: 20px;
+			}
+			
+			
+			.section {
+				font-size: 10pt;
+				clear: both;
+				padding: 10px 0 30px 0;
+			}
+			
+			.section p {
+				text-indent: 2em;
+			}
+			
+			h2.title {
+				font-size: 12pt;
+				font-family: 微软雅黑, 宋体;
+				margin-top: 0;
+				padding: 2px 5px;
+				border-top: 1px #36C solid;
+				background-color: #E5ECF9;
+			}
+			
+			.infoRow {
+				clear: both;
+				margin: 5px 0px;
+			}
+			
+			.infoRow label.infoName {
+				float: left;
+				width: 100px;
+				text-align: right;
+				padding-right: 10px;
+			}
+			
+			ul.infoList {
+				margin: 0px;
+				padding: 0px;
+				list-style: none;
+			}
+			
+			ul.infoList li {
+				overflow: auto;
+				margin: 15px 0px;
+			}
+			
+			ul.infoList .infoListLeft {
+				width: 169px;
+				float: left;
+				margin-left: 10px;
+			}
+			
+			ul.infoList .infoListRight {
+				width: 400px;
+				float: right;
+				margin-right: 10px;
+			}
+			
+			ul.skillList {
+				list-style-type: circle;
+			}
+			
+			ul.skillList li {
+				overflow: visible;
+				margin: 0px 0px 10px 0px;
+			}
+			
+			.keyItem {
+				color: #C90;
+				font-weight: bold;
+			}
+			
+			.annotation {
+				padding-left: 10px;
+				padding-top: 5px;
+				text-indent: 1em;
+				font-style: italic;
+			}
+			
+			span.bold {
+				font-weight: bold;
+			}
+			
+			.footer {
+				overflow: auto;
+				margin: 0px 20px;
+				border-top: 2px solid lightgray;
+			}
+			
+			.thanks {
+				text-align: center;
+				font-size: 16px;
+				font-weight: bold;
+			}
+			
+			#browserWarn {
+				font-size: 20px;
+				color: #00C;
+				font-weight: bold;
+				display: none;
+			}
+			
+			.lifePic {
+				width: 100%;
+			}
+		</style>
+		
+		<script type="text/javascript">
+			var init = function(){
+				var prefix = (/webkit/i).test(navigator.appVersion) ? '-webkit-'
+						: (/firefox/i).test(navigator.userAgent) ? '-moz-'
+						: 'opera' in window ? '-o-' : '';
+				
+				var doc = document;
+				
+				//显示浏览器警告
+				if(prefix == ''){
+					doc.querySelector("#browserWarn").style.display = 'block';
+				}
+				
+				//绑定按钮
+				(function(){
+					var scroller = doc.querySelector("#scroller");
+					
+					var aboutBtn = doc.querySelector("#aboutBtn");
+					var profileBtn = doc.querySelector("#profileBtn");
+					var projectBtn = doc.querySelector("#projectBtn");
+					var moreBtn = doc.querySelector("#moreBtn");
+					
+					var initColor = function(){
+						aboutBtn.style.color = 'orange';
+						profileBtn.style.color = 'orange';
+						projectBtn.style.color = 'orange';
+						moreBtn.style.color = 'orange';
+					};
+					
+					
+					
+					var orginalTransform = 'transform';
+					var prefirxTransform = prefix + orginalTransform;
+					
+					var setTranslateX = (function(){
+						//for webkit browser (Chrome, Firefox, Safari)
+						if(scroller.style[prefirxTransform] != null){
+							return function(abs){
+								var value = 'translateX(' + abs + 'px)';
+								scroller.style[prefirxTransform] = value;
+							};
+						}
+						
+						//for CSS3标准的 (Firefox最新版本)
+						else if(scroller.style[orginalTransform] != null){
+							return function(abs){
+								var value = 'translateX(' + abs + 'px)';
+								scroller.style[orginalTransform] = value;
+							};
+						}
+						
+						//for ie
+						else {
+							return function(abs){
+								var value = abs + 'px';
+								scroller.style['margin-left'] = value;
+							};
+						}
+					})();
+					
+					//console.log(prefirxTransform);	
+					//console.dir(navigator);
+					
+					aboutBtn.addEventListener('click', function(){
+						initColor();
+						this.style.color = 'black';
+						setTranslateX(0);
+					}, false);
+					
+					profileBtn.addEventListener('click', function(){
+						initColor();
+						this.style.color = 'black';
+						setTranslateX(-690);
+					}, false);
+					
+					projectBtn.addEventListener('click', function(){
+						initColor();
+						this.style.color = 'black';
+						setTranslateX(-690 * 2);
+					}, false);
+					
+					moreBtn.addEventListener('click', function(){
+						initColor();
+						this.style.color = 'black';
+						setTranslateX(-690 * 3);
+					}, false);
+					
+				})();
+			};
+			
+		</script>
+	</head>
+	
+	<body onload="init();">
+		<div id="browserWarn">
+			<p>您的游览器不够酷哦，尝试一下Chrome、Safari、Firefox吧！</p>
+		</div>
+		<div class="mainWrapper">
+			<ul class="nav">
+				<li id="aboutBtn"><span class="navTitle">简介</span></li>
+				<li id="profileBtn"><span class="navTitle">履历</span></li>
+				<li id="projectBtn"><span class="navTitle">项目</span></li>
+				<li id="moreBtn"><span class="navTitle">更多</span></li>
+			</ul>
+			
+			
+			
+			<div class="innerWrapper">
+				<div class="scroller" id="scroller">
+					<div class="infoContainer">
+						<div class="content" id="about">
+							<div class="left">
+								<img src="http://pic.yupoo.com/answer1991/Cp7HfI46/QPcBe.jpg" class="avatar" alt="证件一寸照" title="证件一寸照"></img>
+							</div>
+							
+							<div class="right">
+								<div class="section">
+									<h2 class="title">个人简介</h2>
+									<p>陈俊，90后程序员。对生活充满热情，为人随和，易于相处。</p>
+									<p>爱好广泛，对于没把玩过的新事物非要试着研究一番方肯罢休。对书法、美术、篮球、足球、文学、电影、计算机技术较为热衷，却没有拿得出手的专长。</p>
+									<p>大学开始学习编程，有较好的面向对象编程思想，学习过诸多编程语言，没有特别精通的。第一份工作是前端的开发，现正专研前端中。</p>
+									<p>善于沟通，团队协作能力强。有良好的适应能力和学习新知识的能力，相信能够迅速融入团队，并能找到方向为团队贡献一份力量。</p>
+								</div>
+								
+								<div class="section">
+									<h2 class="title">联系方式</h2>
+									<div class="infoRow">
+										<label class="infoName">移动电话</label>
+										<a href="tel:+86-15158114079"><span class="bold">+86-15158114079</span></a>
+									</div>
+									
+									<div class="infoRow">
+										<label class="infoName">电子邮件</label>
+										<a href="mailto:answer1991.chen@gmail.com"><span class="bold">answer1991.chen@gmail.com</span></a>
+									</div>
+									
+									<div class="infoRow">
+										<label class="infoName">腾讯QQ</label>
+										<a href="http://wpa.qq.com/msgrd?v=3&uin=87751987&site=qq&menu=yes"><span class="bold">87751987</span></a>
+									</div>
+									
+									
+								</div>
+							</div>
+						</div>
+						
+						
+						
+						<div class="footer">
+							<p class="thanks">感谢您抽出宝贵的时间阅读我的简历！<br>您可以保存简历到本地浏览哦 : )</p>
+						</div>
+					</div>
+					
+					<div class="infoContainer">
+						<div class="content" id="skill">
+							<div class="section">
+								<h2 class="title">技能</h2>
+								<ul class="infoList">
+									<li>
+										<div class="infoListLeft keyItem">
+											专业技能
+										</div>
+										<div class="infoListRight">
+											<ul class="skillList">
+												<li>熟悉 <strong>Java</strong>, 了解 <strong>Struts2</strong>, <strong>Hibernate</strong>, <strong>Spring</strong>等常用的框架。</li>
+												<li>熟悉 <strong>JavaScript</strong>, 了解 <strong>HTML</strong> 与 <strong>CSS</strong> 以及其它 Web 标准，能够设计符合 Web 标准的网站</li>
+												<li>熟悉 <strong>Android</strong>开发。</li>
+												<li>了解数据库理论，熟悉 <strong>MySQL</strong> 数据库。</li>
+												<li>熟悉 <strong>TCP/IP</strong> 协议，了解 Socket 网络编程。</li>
+												<li>了解<strong>C/C++</strong>, <strong>C# .NET</strong>, <strong>PHP</strong> 等编程语言，并用它们完成过一些较小的项目。</li>
+												<li>了解一些简单的路由器、交换机协议，能够完成一些简单的网络配置。</li>
+											</ul>
+										</div>
+									</li>
+									
+									
+									<li>
+										<div class="infoListLeft keyItem">
+											专业技能证书
+										</div>
+										<div class="infoListRight">
+											<ul class="skillList">
+												<li>
+													<strong>网络工程师</strong>
+												</li>
+											</ul>
+										</div>
+									</li>
+									
+									<li>
+										<div class="infoListLeft keyItem">
+											语言技能
+										</div>
+										<div class="infoListRight">
+											<ul class="skillList">
+												<li>
+													<strong>CET-4</strong>
+													<div class="annotation">能进行普通难度的英语阅读和写作，能用英语完成较简单的沟通。</div>
+												</li>
+											</ul>
+										</div>
+									</li>
+									
+								</ul>
+							</div>
+							
+							<div class="section">
+								<h2 class="title">工作经历</h2>
+								<ul class="infoList">
+									<li>
+										<div class="infoListLeft keyItem">
+											2012年6月 —— 2012年9月
+										</div>
+										<div class="infoListRight">
+											<strong>杭州恩牛网络科技有限公司</strong>
+											<div class="annotation">
+												研发部，前端工程师
+											</div>
+											<div class="annotation">
+												负责 <strong>51信用卡管家</strong> 的前端开发工作
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+							
+							<div class="section">
+								<h2 class="title">教育经历</h2>
+								<ul class="infoList">
+									<li>
+										<div class="infoListLeft keyItem">
+											2008年9月 —— 2012年6月
+										</div>
+										<div class="infoListRight">
+											<strong>杭州电子科技大学</strong>
+											<div class="annotation">
+												计算机学院，网络工程专业
+											</div>
+											<div class="annotation">
+												2012年获得学士学位
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+							
+							<div class="section">
+								<h2 class="title">荣耀</h2>
+								<ul class="infoList">
+									<li>
+										<div class="infoListLeft keyItem">
+											2012年6月
+										</div>
+										<div class="infoListRight">
+											<strong>优秀毕业设计</strong>
+											<div class="annotation">
+												杭州电子科技大学计算机学院颁发
+											</div>
+											<div class="annotation">
+												独立完成 <strong>基于Android的基金投资分析系统</strong>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+						
+						<div class="footer">
+							<p class="thanks">感谢您抽出宝贵的时间阅读我的简历！<br>您可以保存简历到本地浏览哦 : )</p>
+						</div>
+					</div>
+					
+					<div class="infoContainer">
+						<div class="content">
+							<div class="section">
+								<h2 class="title">项目经验</h2>
+								<ul class="infoList">
+									<li>
+										<div class="infoListLeft keyItem">
+											2012年6月 —— 2012年9月
+										</div>
+										<div class="infoListRight">
+											<strong>51信用卡管家</strong>
+											<div class="annotation">
+												一款强大的跨平台信用卡管理软件，使用 <strong>HTML5</strong> 、<strong>CSS3</strong> 和 <strong>JavaScript</strong> 开发的前端能适用于iOS，Android和PC浏览器。
+											</div>
+											<div class="annotation">
+												主要职责是前端开发，也参与Web Service和数据库的开发。
+											</div>
+										</div>
+									</li>
+									
+									<li>
+										<div class="infoListLeft keyItem">
+											2012年2月 —— 2012年6月
+										</div>
+										<div class="infoListRight">
+											<strong>基于Android的基金投资分析系统</strong>
+											<div class="annotation">
+												能为Android用户提供最新的基金信息。服务器使用 <strong>J2EE</strong> 和 <strong>MySQL</strong>开发。
+											</div>
+											<div class="annotation">
+												从Android前端、数据交换格式设计、数据库设计到服务器的开发均由我一人完成。
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+							
+						</div>
+						
+						<div class="footer">
+								<p class="thanks">感谢您抽出宝贵的时间阅读我的简历！<br>您可以保存简历到本地浏览哦 : )</p>
+						</div>
+					</div>
+				
+					<div class="infoContainer">
+						<div class="content">
+							<div class="section">
+								<h2 class="title">其他联系方式</h2>
+								
+									<div class="infoRow">
+										<label class="infoName">豆瓣</label>
+										<a href="http://www.douban.com/people/zet/"><span class="bold">answer1991chen</span></a>
+									</div>
+									
+									<div class="infoRow">
+										<label class="infoName">新浪微博</label>
+										<a href="http://weibo.com/answer1991chen"><span class="bold">@answer1991chen</span></a>
+									</div>
+								
+									<div class="infoRow">
+										<label class="infoName">博客园</label>
+										<a href="http://www.cnblogs.com/answer1991/"><span class="bold">answer1991</span></a>
+									</div>
+									
+									<div class="infoRow">
+										<label class="infoName">MSN</label>
+										<a href="msnim:chat?contact=answer1991.chen@gmail.com"><span class="bold">answer1991.chen@gmail.com</span></a>
+									</div>
+									
+							</div>
+							
+							<div class="section">
+								<h2 class="title">生活照</h2>
+								<ul class="infoList">
+									<li>
+										<img src="http://pic.yupoo.com/answer1991/Cp8AX9K2/14aWmZ.jpg" class="lifePic" alt="生活照" title="生活照@九寨沟" ></img>
+									</li>
+									
+									<li>
+										<img src="http://pic.yupoo.com/answer1991/Cp8AWY5J/MTqWf.jpg" class="lifePic" alt="生活照" title="生活照@黄龙" ></img>
+									</li>
+								</ul>
+							</div>
+							
+						</div>
+						<div class="footer">
+							<p class="thanks">感谢您抽出宝贵的时间阅读我的简历！<br>您可以保存简历到本地浏览哦 : )</p>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</body>
+</html>
