@@ -20,6 +20,10 @@
 				font: 12px 微软雅黑, 宋体;
 			}
 			
+			.fixBoth::after {
+				clear: both;
+			}
+			
 			.hidden {
 				display: none;
 			}
@@ -255,11 +259,9 @@
 						: (/firefox/i).test(navigator.userAgent) ? '-moz-'
 						: 'opera' in window ? '-o-' : '';
 				
-				var doc = document;
-				
 				//显示浏览器警告
 				if(prefix == ''){
-					doc.querySelector("#browserWarn").style.display = 'block';
+					document.querySelector("#browserWarn").style.display = 'block';
 				}
 				
 				//绑定按钮
@@ -365,7 +367,7 @@
 								<img src="http://pic.yupoo.com/answer1991/Cp7HfI46/QPcBe.jpg" class="avatar" alt="证件一寸照" title="证件一寸照"></img>
 							</div>
 							
-							<div class="right">
+							<div class="right fixBoth">
 								<div class="section">
 									<h2 class="title">个人简介</h2>
 									<p>陈俊，90后程序员。对生活充满热情，为人随和，易于相处。</p>
@@ -412,7 +414,7 @@
 										<div class="infoListLeft keyItem">
 											专业技能
 										</div>
-										<div class="infoListRight">
+										<div class="infoListRight fixBoth">
 											<ul class="skillList">
 												<li>熟悉 <strong>Java</strong>, 了解 <strong>Struts2</strong>, <strong>Hibernate</strong>, <strong>Spring</strong>等常用的框架。</li>
 												<li>熟悉 <strong>JavaScript</strong>, 了解 <strong>HTML</strong> 与 <strong>CSS</strong> 以及其它 Web 标准，能够设计符合 Web 标准的网站</li>
@@ -430,7 +432,7 @@
 										<div class="infoListLeft keyItem">
 											专业技能证书
 										</div>
-										<div class="infoListRight">
+										<div class="infoListRight fixBoth">
 											<ul class="skillList">
 												<li>
 													<strong>网络工程师</strong>
@@ -443,7 +445,7 @@
 										<div class="infoListLeft keyItem">
 											语言技能
 										</div>
-										<div class="infoListRight">
+										<div class="infoListRight fixBoth">
 											<ul class="skillList">
 												<li>
 													<strong>CET-4</strong>
@@ -463,7 +465,7 @@
 										<div class="infoListLeft keyItem">
 											2012年6月 —— 2012年9月
 										</div>
-										<div class="infoListRight">
+										<div class="infoListRight fixBoth">
 											<strong>杭州恩牛网络科技有限公司</strong>
 											<div class="annotation">
 												研发部，前端工程师
@@ -483,7 +485,7 @@
 										<div class="infoListLeft keyItem">
 											2008年9月 —— 2012年6月
 										</div>
-										<div class="infoListRight">
+										<div class="infoListRight fixBoth">
 											<strong>杭州电子科技大学</strong>
 											<div class="annotation">
 												计算机学院，网络工程专业
@@ -503,7 +505,7 @@
 										<div class="infoListLeft keyItem">
 											2012年6月
 										</div>
-										<div class="infoListRight">
+										<div class="infoListRight fixBoth">
 											<strong>优秀毕业设计</strong>
 											<div class="annotation">
 												杭州电子科技大学计算机学院颁发
@@ -531,7 +533,7 @@
 										<div class="infoListLeft keyItem">
 											2012年6月 —— 2012年9月
 										</div>
-										<div class="infoListRight">
+										<div class="infoListRight fixBoth">
 											<strong>51信用卡管家</strong> <a href="http://www.51zhangdan.com" title="51信用卡管家" target="_blank">了解更多</a>
 											<div class="annotation">
 												一款强大的跨平台信用卡管理软件，使用 <strong>HTML5</strong> 、<strong>CSS3</strong> 和 <strong>JavaScript</strong> 开发的前端能适用于iOS，Android和PC浏览器。
@@ -546,7 +548,7 @@
 										<div class="infoListLeft keyItem">
 											2012年2月 —— 2012年6月
 										</div>
-										<div class="infoListRight">
+										<div class="infoListRight fixBoth">
 											<strong>基于Android的基金投资分析系统</strong> <a href="http://blog.answer1991.com/fundsystem" title="基于Android的基金投资分析系统" target="_blank">了解更多</a>
 											<div class="annotation">
 												能为Android用户提供最新的基金信息。服务器使用 <strong>J2EE</strong> 和 <strong>MySQL</strong>开发。
@@ -602,6 +604,11 @@
 							<div class="section">
 								<h2 class="title">生活照</h2>
 								<ul class="infoList">
+									
+									<li>
+										<img src="http://pic.yupoo.com/answer1991/CpwIX30e/AuBhX.jpg" class="lifePic" alt="生活照" title="@IBM" ></img>
+									</li>
+									
 									<li>
 										<img src="http://pic.yupoo.com/answer1991/Cp8AX9K2/14aWmZ.jpg" class="lifePic" alt="生活照" title="生活照@九寨沟" ></img>
 									</li>
