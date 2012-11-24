@@ -2,8 +2,8 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<meta name="keywords" content="陈俊, 简历, 求职, Java, JavaScript, J2EE, Android" ></meta>
-		<meta name="description" content="陈俊的简历, Java, JavaScript, J2EE, Android" ></meta>
+		<meta name="keywords" content="陈俊, 简历, 求职, Java, JavaScript, J2EE, Android" >
+		<meta name="description" content="陈俊的简历, Java, JavaScript, J2EE, Android" >
 		<title>陈俊的简历</title>
 		<style type="text/css" media="all">
 			/*
@@ -18,6 +18,10 @@
 				margin: 0px;
 				background-color: #E5ECF9;
 				font: 12px 微软雅黑, 宋体;
+			}
+			
+			p {
+				margin: 1em 0em;
 			}
 			
 			.fixBoth::after {
@@ -254,88 +258,164 @@
 		</style>
 		
 		<script type="text/javascript">
+			var queryById = (function(doc){
+				if(doc.querySelector){
+					return function(id){
+						return doc.querySelector('#' + id);
+					}
+				}
+				else {
+					return function(id){
+						return doc.getElementById(id);
+					}
+				}
+			})(document);
+			
+			var bindEvent = (function(){
+				if(document.addEventListener){
+					return function(el, type, callBack, capture){
+						capture = typeof capture == 'boolean' ? capture : false;
+						return el.addEventListener(type, callBack, capture);
+					}
+				}
+				
+				else{
+					return function(el, type, callBack){
+						el.attachEvent('on' + type, callBack);
+					}
+				}
+			})();
+			
 			var init = function(){
 				var prefix = (/webkit/i).test(navigator.appVersion) ? '-webkit-'
 						: (/firefox/i).test(navigator.userAgent) ? '-moz-'
 						: 'opera' in window ? '-o-' : '';
 				
-				//显示浏览器警告
-				if(prefix == ''){
-					document.querySelector("#browserWarn").style.display = 'block';
+				/* 2012年11月14日 增加IE低版本兼容*/
+				
+				//IE浏览器版本低于9的显示浏览器警告
+				var ua = navigator.userAgent.toLowerCase(); 
+				var s; 
+				if(s = ua.match(/msie ([\d.]+)/)){
+					if(parseInt(s[1]) < 9){
+						queryById("browserWarn").style.display = 'block';
+					}
 				}
 				
 				//绑定按钮
 				(function(){
-				 	var doc = document;
-					var scroller = doc.querySelector("#scroller");
+					var scroller = queryById("scroller");
 					
-					var aboutBtn = doc.querySelector("#aboutBtn");
-					var profileBtn = doc.querySelector("#profileBtn");
-					var projectBtn = doc.querySelector("#projectBtn");
-					var moreBtn = doc.querySelector("#moreBtn");
+					var aboutBtn = queryById("aboutBtn");
+					var profileBtn = queryById("profileBtn");
+					var projectBtn = queryById("projectBtn");
+					var moreBtn = queryById("moreBtn");
 					
 					var initColor = function(){
-						aboutBtn.style.color = 'orange';
-						profileBtn.style.color = 'orange';
-						projectBtn.style.color = 'orange';
-						moreBtn.style.color = 'orange';
+						aboutBtn.style['color'] = 'orange';
+						profileBtn.style['color'] = 'orange';
+						projectBtn.style['color']= 'orange';
+						moreBtn.style['color'] = 'orange';
 					};
-					
-					
 					
 					var orginalTransform = 'transform';
 					var prefirxTransform = prefix + orginalTransform;
 					
+					var orginalTransition = 'transition';
+					var prefixTransition = prefix + orginalTransition;
+					
 					var setTranslateX = (function(){
-						//for webkit browser (Chrome, Firefox, Safari)
-						if(scroller.style[prefirxTransform] != null){
-							return function(abs){
-								var value = 'translateX(' + abs + 'px)';
-								scroller.style[prefirxTransform] = value;
-							};
+						//检测浏览器是否实现了CSS3的动画效果
+						if(scroller.style[orginalTransition] != null || scroller.style[prefixTransition] != null){
+							//for webkit browser (Chrome, Firefox, Safari)
+							if(scroller.style[prefirxTransform] != null){
+								return function(abs){
+									var value = 'translateX(' + abs + 'px)';
+									scroller.style[prefirxTransform] = value;
+								};
+							}
+							
+							//for CSS3标准的 (Firefox最新版本)
+							else if(scroller.style[orginalTransform] != null){
+								return function(abs){
+									var value = 'translateX(' + abs + 'px)';
+									scroller.style[orginalTransform] = value;
+								};
+							}
+							
+							//for ie
+							else {
+								return function(abs){
+									var value = abs + 'px';
+									scroller.style['margin-left'] = value;
+								};
+							}
 						}
 						
-						//for CSS3标准的 (Firefox最新版本)
-						else if(scroller.style[orginalTransform] != null){
-							return function(abs){
-								var value = 'translateX(' + abs + 'px)';
-								scroller.style[orginalTransform] = value;
-							};
-						}
-						
-						//for ie
+						//不支持CSS3
+						//fuck IE 6
 						else {
-							return function(abs){
-								var value = abs + 'px';
-								scroller.style['margin-left'] = value;
-							};
+							var timerArray = new Array();
+							/**
+								abs: 目标偏移量
+								count: 分多少次偏移
+								time: 多少时间偏移完成, 以毫秒为单位
+							*/
+							return function(abs, count, time){
+								count = count || 10;
+								time = time || 500;
+								var i = 0;
+								
+								//清空已存在的定时器
+								for(i = 0; i < timerArray.length; i ++){
+									clearTimeout(timerArray[i]);
+								}
+								timerArray.length = 0;
+								
+								/**
+									abs: 函数的参数，目标偏移量
+									hadMove: Scroller已经偏移量
+									onceMove: 每一次偏移量
+								*/
+								var hadMove = parseFloat(scroller.style['margin-left']) || 0;
+								var onceMove = (abs - hadMove) / count;
+								var onceTime = time / count;
+								for(i = 0; i < count; i ++){
+									var timer = setTimeout(function(){
+										hadMove += onceMove;
+										scroller.style['margin-left'] = hadMove + 'px';
+									}, i * onceTime);
+									timerArray.push(timer);
+								}
+								console.dir(timerArray);
+							}
 						}
 					})();
 					
 					//console.log(prefirxTransform);	
 					//console.dir(navigator);
 					
-					aboutBtn.addEventListener('click', function(){
+					bindEvent(aboutBtn, 'click', function(){
 						initColor();
-						this.style.color = 'black';
+						aboutBtn.style.color = 'black';
 						setTranslateX(0);
 					}, false);
 					
-					profileBtn.addEventListener('click', function(){
+					bindEvent(profileBtn, 'click', function(){
 						initColor();
-						this.style.color = 'black';
+						profileBtn.style.color = 'black';
 						setTranslateX(-690);
 					}, false);
 					
-					projectBtn.addEventListener('click', function(){
+					bindEvent(projectBtn, 'click', function(){
 						initColor();
-						this.style.color = 'black';
+						projectBtn.style.color = 'black';
 						setTranslateX(-690 * 2);
 					}, false);
 					
-					moreBtn.addEventListener('click', function(){
+					bindEvent(moreBtn, 'click', function(){
 						initColor();
-						this.style.color = 'black';
+						moreBtn.style.color = 'black';
 						setTranslateX(-690 * 3);
 					}, false);
 					
@@ -364,7 +444,7 @@
 					<div class="infoContainer">
 						<div class="content" id="about">
 							<div class="left">
-								<img src="http://pic.yupoo.com/answer1991/Cp7HfI46/QPcBe.jpg" class="avatar" alt="证件一寸照" title="证件一寸照"></img>
+								<img src="http://pic.yupoo.com/answer1991/Cp7HfI46/QPcBe.jpg" class="avatar" alt="证件一寸照" title="证件一寸照">
 							</div>
 							
 							<div class="right fixBoth">
@@ -373,7 +453,7 @@
 									<p>陈俊，90后程序员。对生活充满热情，为人随和，易于相处。</p>
 									<p>爱好广泛，对于没把玩过的新事物非要试着研究一番方肯罢休。对书法、美术、篮球、足球、文学、电影、计算机技术较为热衷，却没有拿得出手的专长。</p>
 									<p>大学开始学习编程，有较好的面向对象编程思想，学习过诸多编程语言，没有特别精通的。第一份工作是前端的开发，现正专研前端中。</p>
-									<p>善于沟通，团队协作能力强。有良好的适应能力和学习新知识的能力，相信能够迅速融入团队，并能找到方向为团队贡献一份力量。</p>
+									<p>乐于沟通，团队协作能力强。有良好的适应能力和学习新知识的能力，相信能够迅速融入团队，并能找到方向为团队贡献一份力量。</p>
 								</div>
 								
 								<div class="section">
@@ -606,16 +686,18 @@
 								<ul class="infoList">
 									
 									<li>
-										<img src="http://pic.yupoo.com/answer1991/CpwIX30e/AuBhX.jpg" class="lifePic" alt="生活照" title="@IBM" ></img>
+										<img src="http://pic.yupoo.com/answer1991/CpwIX30e/AuBhX.jpg" class="lifePic" alt="生活照" title="@IBM" >
 									</li>
 									
 									<li>
-										<img src="http://pic.yupoo.com/answer1991/Cp8AX9K2/14aWmZ.jpg" class="lifePic" alt="生活照" title="生活照@九寨沟" ></img>
+										<img src="http://pic.yupoo.com/answer1991/Cp8AX9K2/14aWmZ.jpg" class="lifePic" alt="生活照" title="生活照@九寨沟" >
 									</li>
 									
+									<!--    就显示两张吧。
 									<li>
-										<img src="http://pic.yupoo.com/answer1991/Cp8AWY5J/MTqWf.jpg" class="lifePic" alt="生活照" title="生活照@黄龙" ></img>
+										<img src="http://pic.yupoo.com/answer1991/Cp8AWY5J/MTqWf.jpg" class="lifePic" alt="生活照" title="生活照@黄龙" >
 									</li>
+									-->
 								</ul>
 							</div>
 							
@@ -628,5 +710,10 @@
 				
 			</div>
 		</div>
+		<!--
+			更新日志：
+				2012年11月24日： 增加低版本IE兼容性
+			过几天增加圆角，阴影等兼容
+		-->
 	</body>
 </html>
